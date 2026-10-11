@@ -1,24 +1,16 @@
-# 💼 Curriculum Vitae
+## 💼 My Projects
 
-## Preview CV
-
-![Preview CV](Output.CV.png)
-
-## Tentang Project
+### 📄 Personal CV Website
 
 Website Curriculum Vitae (CV) yang dibuat menggunakan HTML dan CSS untuk tugas mata kuliah Pemrograman Web.
 
-## Teknologi yang Digunakan
+**Technologies:** HTML5 · CSS3
 
-- HTML5
-- CSS3
+### 🖥️ CV Preview
 
-## Struktur Project
+![Preview CV](./tugas-pemrograman-web-cv/Output.CV.png)
 
-- `index.html` : Struktur halaman CV.
-- `style.css` : Desain dan tampilan CV.
-- `img/` : Folder aset gambar.
-- `README.md` : Dokumentasi project.
+📂 [View Project Source Code](./tugas-pemrograman-web-cv/)
 
 
 
