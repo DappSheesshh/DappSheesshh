@@ -2,7 +2,7 @@
 
 ## Preview CV
 
-![Preview CV](Output.png)
+![Preview CV](Output.CV.png)
 
 ## Tentang Project
 
