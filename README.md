@@ -1,21 +1,3 @@
-## 💼 My Projects
-
-### 📄 Personal CV Website
-
-Website Curriculum Vitae (CV) yang dibuat menggunakan HTML dan CSS untuk tugas mata kuliah Pemrograman Web.
-
-**Technologies:** HTML5 · CSS3
-
-### 🖥️ CV Preview
-
-![Preview CV](./tugas-pemrograman-web-cv/Output.CV.png)
-
-📂 [View Project Source Code](./tugas-pemrograman-web-cv/)
-
-
-
-<div align="center">
-
 # 👋 Hi, I'm DappSheesshh
 
 ### 💻 Informatics Engineering Student
