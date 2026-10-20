@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CatatUang membantu mencatat dan menghitung pengeluaran harian dengan sederhana.">
+  <title>CatatUang | Penghitung Pengeluaran</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#beranda" aria-label="CatatUang beranda">
+        <span class="brand-mark">₲</span>
+        <span>Catat<span class="brand-accent">Uang</span></span>
+      </a>
+      <span class="today-pill" id="todayLabel">Pengeluaran harian</span>
+    </header>
+
+    <main id="beranda">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">KEUANGAN LEBIH TERATUR</p>
+          <h1>Uangmu pergi ke mana?</h1>
+          <p class="intro-copy">Catat pengeluaran, pahami kebiasaan belanja, dan jaga anggaranmu tetap aman.</p>
+        </div>
+        <div class="intro-icon" aria-hidden="true">↗</div>
+      </section>
+
+      <section class="summary-grid" aria-label="Ringkasan keuangan">
+        <article class="summary-card primary-card">
+          <div class="summary-top"><span>Total pengeluaran bulan ini</span><span class="summary-icon">↘</span></div>
+          <p class="summary-amount" id="monthTotal">Rp0</p>
+          <p class="summary-note" id="monthCount">Belum ada transaksi bulan ini</p>
+        </article>
+        <article class="summary-card">
+          <div class="summary-top"><span>Anggaran bulanan</span><span class="summary-icon">◎</span></div>
+          <p class="summary-amount" id="budgetTotal">Rp0</p>
+          <p class="summary-note">Target pengeluaranmu</p>
+        </article>
+        <article class="summary-card">
+          <div class="summary-top"><span>Sisa anggaran</span><span class="summary-icon">✦</span></div>
+          <p class="summary-amount" id="remainingTotal">Rp0</p>
+          <p class="summary-note" id="budgetStatus">Atur anggaran untuk memulai</p>
+        </article>
+      </section>
+
+      <section class="budget-panel panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">BATAS PENGELUARAN</p><h2>Anggaran bulanan</h2></div>
+          <span class="budget-percent" id="budgetPercent">0%</span>
+        </div>
+        <form id="budgetForm" class="budget-form">
+          <label for="budgetInput">Tentukan anggaran (Rp)</label>
+          <div class="inline-fields">
+            <input id="budgetInput" name="budget" type="number" min="0" step="1000" placeholder="Contoh: 1500000" inputmode="numeric" required>
+            <button class="button button-dark" type="submit">Simpan anggaran</button>
+          </div>
+        </form>
+        <div class="progress-track" role="progressbar" aria-label="Pemakaian anggaran bulan ini" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="budgetProgress">
+          <div class="progress-fill" id="budgetProgressFill"></div>
+        </div>
+        <div class="progress-labels"><span id="spentLabel">Terpakai Rp0</span><span id="leftLabel">Sisa Rp0</span></div>
+      </section>
+
+      <section class="content-grid">
+        <section class="panel add-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">TRANSAKSI BARU</p><h2>Tambah pengeluaran</h2></div>
+            <span class="heading-symbol">＋</span>
+          </div>
+          <form id="expenseForm" class="expense-form">
+            <div class="form-field">
+              <label for="expenseName">Nama pengeluaran</label>
+              <input id="expenseName" name="name" type="text" maxlength="70" placeholder="Contoh: Makan siang" required>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="expenseAmount">Jumlah (Rp)</label>
+                <input id="expenseAmount" name="amount" type="number" min="1" step="1" inputmode="numeric" placeholder="25000" required>
+              </div>
+              <div class="form-field">
+                <label for="expenseCategory">Kategori</label>
+                <select id="expenseCategory" name="category" required>
+                  <option value="Makanan">🍜 Makanan</option>
+                  <option value="Transportasi">🚌 Transportasi</option>
+                  <option value="Belanja">🛍️ Belanja</option>
+                  <option value="Tagihan">💡 Tagihan</option>
+                  <option value="Pendidikan">📚 Pendidikan</option>
+                  <option value="Hiburan">🎮 Hiburan</option>
+                  <option value="Kesehatan">🩺 Kesehatan</option>
+                  <option value="Lainnya">📦 Lainnya</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="expenseDate">Tanggal</label>
+              <input id="expenseDate" name="date" type="date" required>
+            </div>
+            <div class="form-field">
+              <label for="expenseNote">Catatan <span class="optional">(opsional)</span></label>
+              <input id="expenseNote" name="note" type="text" maxlength="120" placeholder="Contoh: makan bersama teman">
+            </div>
+            <button class="button button-primary submit-button" type="submit">＋ Tambahkan transaksi</button>
+            <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="panel history-panel">
+          <div class="section-heading history-heading">
+            <div><p class="eyebrow">CATATANMU</p><h2>Riwayat pengeluaran</h2></div>
+            <span class="transaction-count" id="transactionCount">0 transaksi</span>
+          </div>
+          <div class="filter-row">
+            <label class="search-box" for="searchInput"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Cari pengeluaran..." aria-label="Cari pengeluaran"></label>
+            <select id="categoryFilter" aria-label="Filter kategori">
+              <option value="Semua">Semua kategori</option>
+              <option value="Makanan">Makanan</option><option value="Transportasi">Transportasi</option><option value="Belanja">Belanja</option><option value="Tagihan">Tagihan</option><option value="Pendidikan">Pendidikan</option><option value="Hiburan">Hiburan</option><option value="Kesehatan">Kesehatan</option><option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+          <div id="expenseList" class="expense-list" aria-live="polite"></div>
+          <div class="history-footer">
+            <span id="visibleSummary">Total transaksi: Rp0</span>
+            <button id="clearAllButton" class="text-button" type="button">Hapus semua</button>
+          </div>
+          <p class="privacy-note">Data tersimpan di browser perangkat ini.</p>
+        </section>
+      </section>
+
+      <footer class="footer"><span>CatatUang</span><span>Kelola hari ini, rencanakan esok hari.</span></footer>
+    </main>
+  </div>
+  <div id="confirmDialog" class="dialog-backdrop" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+      <div class="dialog-icon">!</div><h2 id="dialogTitle">Hapus semua transaksi?</h2>
+      <p>Semua catatan pengeluaran akan dihapus dari browser ini. Tindakan ini tidak dapat dibatalkan.</p>
+      <div class="dialog-actions"><button type="button" id="cancelClear" class="button button-light">Batal</button><button type="button" id="confirmClear" class="button button-danger">Ya, hapus</button></div>
+    </div>
+  </div>
+</body>
+</html>
