@@ -149,5 +149,5 @@ Contoh `buatBar()`:
 ## Teknologi
 
 - HTML
-- CSS3
+- CSS
 - JavaScript
