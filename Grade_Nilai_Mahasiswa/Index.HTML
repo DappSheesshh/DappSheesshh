@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penghitung Grade Nilai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Penghitung Grade Nilai</h1>
+    <p class="subtitle">Masukkan nama dan nilai (0-100), program akan menentukan grade-nya.</p>
+
+    <label for="nama">Nama</label>
+    <input type="text" id="nama" placeholder="Contoh: Budi">
+
+    <label for="nilai">Nilai</label>
+    <input type="number" id="nilai" placeholder="0 - 100">
+
+    <div class="buttons">
+      <button id="btnTambah">Tambah</button>
+      <button id="btnReset" class="secondary">Reset</button>
+    </div>
+
+    <p id="pesan" class="pesan"></p>
+
+    <div class="tabel-wrap">
+      <table id="tabel" hidden>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Nilai</th>
+            <th>Grade</th>
+            <th>Grafik</th>
+          </tr>
+        </thead>
+        <tbody id="isiTabel"></tbody>
+      </table>
+    </div>
+
+    <section id="statistik" class="statistik" hidden>
+      <div class="kartu"><span>Jumlah Data</span><strong id="jumlah">0</strong></div>
+      <div class="kartu"><span>Rata-rata</span><strong id="rata">0</strong></div>
+      <div class="kartu"><span>Tertinggi</span><strong id="tinggi">0</strong></div>
+      <div class="kartu"><span>Terendah</span><strong id="rendah">0</strong></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
