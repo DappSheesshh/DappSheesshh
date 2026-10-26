@@ -1,6 +1,6 @@
 # Penghitung Grade Nilai
 
-Tugas **Pemrograman Web**: program sederhana yang menerapkan **percabangan** (`if / else if / else`) dan **perulangan** (`for` dan `while`) menggunakan HTML, CSS, dan JavaScript murni, tanpa framework maupun library.
+Tugas **Pemrograman Web**: program sederhana yang menerapkan **percabangan** (`if / else if / else`) dan **perulangan** (`for` dan `while`) menggunakan HTML, CSS, dan JavaScript.
 
 |                 |                               |
 |-----------------|-------------------------------|
